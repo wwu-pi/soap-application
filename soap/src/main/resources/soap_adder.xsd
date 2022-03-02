@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="soap.acse.wwu.de"
+           targetNamespace="soap.acse.wwu.de" elementFormDefault="qualified">
+	<!-- Adjusted from https://spring.io/guides/gs/producing-web-service/ -->
+    <xs:element name="addRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="n1" type="xs:int"/>
+                <xs:element name="n2" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sum" type="tns:MySum"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="MySum">
+    	<xs:sequence>
+    		<xs:element name="n1" type="tns:MyNumber"/>
+            <xs:element name="n2" type="tns:MyNumber"/>
+            <xs:element name="sum" type="xs:int"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MyNumber">
+        <xs:sequence>
+            <xs:element name="val" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>
