@@ -1,0 +1,4 @@
+# Example demo for SOAP in Spring
+The repository contains two subprojects: `soap` and `soap-client`. 
+`soap` contains a running SOAP application with Spring's `@Endpoint`, some configuration, and a service. The data classes still must be generated. This is done as part of the `jaxb2-maven-plugin` (look into the `pom.xml`). Running the main method will start the application.
+`soap-client` contains a SOAP client written as a `@Component`. The data classes will still have to be generated. Again, a `maven-jaxb2-plugin` is used (look into the `pom.xml`). To generate the classes, the application in the `soap` subproject must be running. Running the main method will execute some exemplary requests against the running application. Note that in an application the `AdderSoapClient` should be used via `@Autowired`.
